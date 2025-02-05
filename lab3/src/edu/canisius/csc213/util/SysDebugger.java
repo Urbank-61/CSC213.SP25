@@ -36,6 +36,9 @@ public class SysDebugger {
             System.err.println("[SysDebugger] Could not retrieve process list: " + e.getMessage());
         }
     }
+    public static void logCurrentDateTime(){
+	System.out.print("This new output worked!");
+    }
 
 }
 
