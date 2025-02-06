@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * SysDebugger - A utility class with static methods to gather
@@ -31,13 +33,16 @@ public class SysDebugger {
                     System.out.println(line);
                 }
             }
-            System.out.println("=== End of Process List ===");
+            System.out.println("=== End of Process List ===\n");
+
         } catch (IOException e) {
             System.err.println("[SysDebugger] Could not retrieve process list: " + e.getMessage());
         }
     }
     public static void logCurrentDateTime(){
-	System.out.print("This new output worked!");
+	LocalDateTime now = LocalDateTime.now();
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("  'D-'yyyy-MM-dd 'T-'HH:mm:ss ");
+	System.out.println("=== Current Date & Time ===\n" + now.format(formatter) + "\n===========================\n");
     }
 
 }
